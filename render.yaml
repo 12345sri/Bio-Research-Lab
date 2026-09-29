@@ -1,0 +1,13 @@
+# One-click deployment on Render (https://render.com): New > Blueprint > select this repository.
+services:
+  - type: web
+    name: bioai-research-lab
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PSEUDONYM_SECRET
+        generateValue: true
